@@ -1,0 +1,47 @@
+# config.yaml
+device: "auto"
+
+model:
+  # Dimensioni per il modello con Attention
+  question_dim: 384
+  image_feature_dim: 256 # Dimensione proiettata dalle feature ResNet
+  attention_hidden_dim: 128
+  dropout: 0.3
+
+# Il nuovo vocabolario di risposte
+answers:
+  - "Sì"
+  - "No"
+  - "aeroplano"
+  - "automobile"
+  - "uccello"
+  - "gatto"
+  - "cervo"
+  - "cane"
+  - "rana"
+  - "cavallo"
+  - "nave"
+  - "camion"
+
+# Categorie per le domande gerarchiche
+categories:
+  animale: [2, 3, 4, 5, 6, 7] # Indici delle classi CIFAR
+  veicolo: [0, 1, 8, 9]
+
+training:
+  batch_size: 16
+  epochs: 20
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  scheduler: cosine # [none|cosine]
+  val_split: 0.1
+  seed: 42
+  num_workers: 0
+
+paths:
+  model_save_path: "vqa_model_best.pth"
+  # Percorsi dataset (singoli file pkl)
+  train_dataset_path: "data/train_dataset.pkl"
+  test_dataset_path: "data/test_dataset.pkl"
+
+embedding_model: 'all-MiniLM-L6-v2'
