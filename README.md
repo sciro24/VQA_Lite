@@ -36,6 +36,13 @@ pip install -r requirements.txt
 
 2. Aprire `VQA_Lite.ipynb` e seguire le celle in ordine. Le celle includono logiche per saltare operazioni costose se i file NPZ o il modello sono già presenti.
 
+> Se usi Colab e vuoi evitare di rigenerare pesi/NPZ o ripristinare immagini di test, copia l'intera cartella `VQA_Lite` nella tua Google Drive (es. `MyDrive/VQA_Lite`).
+> In Colab il notebook monta Drive e cerca i file in `DRIVE_SAVE_DIR` (default: `MyDrive/VQA_Lite`). I nomi attesi sono:
+> - `vqa_model_best.pth` (pesi modello)
+> - `train_dataset_full.npz`, `test_dataset_full.npz` (dataset con embedding)
+> - `test_images/` (immagini di prova)
+> Posizionando questi file nella cartella su Drive Colab li troverà e salterà la rigenerazione.
+
 3. Per testare inferenza locale:
    - Copiare un'immagine in `./test_images/` o usare `DRIVE_SAVE_DIR / 'test_images'` se si usa Google Drive.
    - Aggiornare `USER_IMAGE_NAME` e la domanda nella cella di inferenza.
